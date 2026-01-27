@@ -1,65 +1,66 @@
-import Image from "next/image";
+import Header from "./ui/header";
+import SidebarNav from "./ui/sidebar-nav";
+import ReviewCard from "./ui/review-card";
+import Footer from "./ui/footer";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-white text-slate-900">
+      <Header />
+
+      <div className="mx-auto max-w-6xl px-4 py-6">
+        <div className="grid gap-6 lg:grid-cols-[240px_1fr]">
+          <SidebarNav />
+
+          <section className="space-y-6">
+            <div className="rounded-lg border p-5">
+              <h1 className="text-2xl font-bold">Product Name</h1>
+              <p className="mt-1 text-sm text-slate-600">
+                Short product intro goes here.
+              </p>
+
+              <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_200px]">
+                <div className="rounded-lg border bg-slate-50 p-4">
+                  <div className="mb-3 aspect-[4/3] w-full rounded-md border bg-white" />
+                  <p className="text-sm text-slate-700">
+                    Product description placeholder.
+                  </p>
+                </div>
+
+                <div className="hidden lg:block">
+                  <div className="sticky top-6 rounded-lg border p-4">
+                    <button className="w-full rounded-md bg-slate-900 px-4 py-2 text-sm text-white">
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button className="mt-5 w-full rounded-md bg-slate-900 px-4 py-3 text-sm text-white lg:hidden">
+                Add to Cart
+              </button>
+            </div>
+
+            <div className="rounded-lg border p-5">
+              <h2 className="text-lg font-semibold">Comments / Reviews</h2>
+              <div className="mt-4 space-y-4">
+                <ReviewCard
+                  name="Jamie"
+                  rating="★★★★★"
+                  text="Amazing craftsmanship."
+                />
+                <ReviewCard
+                  name="Riley"
+                  rating="★★★★☆"
+                  text="Beautiful and well made."
+                />
+              </div>
+            </div>
+
+            <Footer />
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
