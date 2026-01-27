@@ -4,7 +4,6 @@ const navItems = [
   { label: "Browse", href: "/browse" },
   { label: "Categories", href: "/categories" },
   { label: "Sellers", href: "/sellers" },
-  { label: "My Cart", href: "/cart" },
 ];
 
 export default function SidebarNav() {
