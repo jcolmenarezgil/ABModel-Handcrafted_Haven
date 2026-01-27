@@ -3,7 +3,6 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Handcrafted Haven",
-  description: "Unique handmade treasures",
 };
 
 export default function RootLayout({

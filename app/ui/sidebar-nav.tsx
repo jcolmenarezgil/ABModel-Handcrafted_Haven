@@ -1,37 +1,28 @@
 import Link from "next/link";
 
+const navItems = [
+  { label: "Browse", href: "/browse" },
+  { label: "Categories", href: "/categories" },
+  { label: "Sellers", href: "/sellers" },
+];
+
 export default function SidebarNav() {
   return (
     <aside className="hidden lg:block">
       <div className="rounded-lg border p-4">
-        <p className="mb-3 text-sm font-semibold text-slate-700">Navigation</p>
-        <ul className="space-y-2 text-sm">
-          <li>
-            <Link href="/browse" className="hover:underline">
-              Browse Products
+        <p className="mb-3 text-sm font-semibold text-slate-700">Menu</p>
+
+        <nav className="flex flex-col gap-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-md border px-3 py-2 text-sm hover:bg-slate-50"
+            >
+              {item.label}
             </Link>
-          </li>
-          <li>
-            <Link href="/categories" className="hover:underline">
-              Categories
-            </Link>
-          </li>
-          <li>
-            <Link href="/top-rated" className="hover:underline">
-              Top Rated
-            </Link>
-          </li>
-          <li>
-            <Link href="/new" className="hover:underline">
-              New Arrivals
-            </Link>
-          </li>
-          <li>
-            <Link href="/sellers" className="hover:underline">
-              Sellers
-            </Link>
-          </li>
-        </ul>
+          ))}
+        </nav>
       </div>
     </aside>
   );

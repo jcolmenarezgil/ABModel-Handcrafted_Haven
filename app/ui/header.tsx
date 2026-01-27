@@ -20,18 +20,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-4 text-sm">
-          <Link href="/browse" className="hover:underline">
-            Browse
-          </Link>
-          <Link href="/categories" className="hover:underline">
-            Categories
-          </Link>
-          <Link href="/sellers" className="hover:underline">
-            Sellers
-          </Link>
-        </nav>
       </div>
 
       {/* Mobile nav */}
